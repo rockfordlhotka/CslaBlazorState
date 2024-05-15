@@ -1,0 +1,32 @@
+﻿@page "/counterserver"
+@rendermode InteractiveServer
+@inject StateManager stateManager
+@inject ApplicationContext applicationContext
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await stateManager.InitializeAsync();
+        if (applicationContext.LocalContext.Contains("currentCount") && applicationContext.LocalContext["currentCount"] is int count)
+        {
+            currentCount = count;
+        }
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        applicationContext.LocalContext["currentCount"] = currentCount;
+        stateManager.SaveState();
+    }
+}

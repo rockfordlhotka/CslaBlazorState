@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CslaBlazorState.Client\CslaBlazorState.Client.csproj" />
+    <PackageReference Include="Csla.AspNetCore" Version="8.1.1" />
+    <PackageReference Include="Csla.Blazor" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
+  </ItemGroup>
+
+</Project>
